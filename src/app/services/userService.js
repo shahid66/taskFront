@@ -9,7 +9,7 @@ export const userApi = createApi({
 			const {
 				authSlice: { token },
 			} = getState();
-			console.log('states: ', token);
+			
 			headers.set('authorization', token ? token : '');
 			return headers;
 		},
@@ -35,9 +35,9 @@ export const userApi = createApi({
 		}),
 		updateUser: builder.mutation({
 			query: (user) => ({
-				headers: {
-					'Content-type': 'application/json',
-				},
+				// headers: {
+				// 	'Content-type': 'multipart/form-data',
+				// },
 				url: '/user',
 				method: 'PUT',
 				body: user,

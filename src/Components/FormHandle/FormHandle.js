@@ -2,7 +2,7 @@ import React from 'react'
 import { useUpdateUserMutation } from '../../app/services/userService'
 
 const FormHandle = ({name,password,image}) => {
-  const[updateUser,data]=useUpdateUserMutation()
+  const[updateUser,{data,isSuccess:updateSuccess}]=useUpdateUserMutation()
     // const initialValue={
     //     name:name,
     //     password:password,
@@ -25,10 +25,14 @@ const FormHandle = ({name,password,image}) => {
         formData.append("name",name)
         formData.append("password",password)
         formData.append("image",image)
-        console.log(image)
+       
         updateUser(formData)
+      
+        
       }
-      console.log(image)
+
+      
+      
   return (
     <>
    {/* {values.image &&  <ImagePreview file={values.image} preFile={image}/>}	 */}
@@ -36,7 +40,7 @@ const FormHandle = ({name,password,image}) => {
     <form onSubmit={handleSubmit} encType="multipart/form-data">
 				
     <input type="file" name="image"    accept='image/*'/>
-    <input type="text" name="name" />
+    <input type="text" name="name" defaultValue={name} required/>
 
     <input type="password" name="password"  />
     <button type="submit">Update</button>

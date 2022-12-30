@@ -9,7 +9,7 @@ export const taskTodo = createApi({
 			const {
 				authSlice: { token },
 			} = getState();
-			console.log('states: ', token);
+			
 			headers.set('authorization', token ? token : '');
 			return headers;
 		},

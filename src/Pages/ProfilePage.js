@@ -4,7 +4,7 @@ import { useGetUserQuery } from '../app/services/userService'
 
 const ProfilePage = () => {
   const {data,isLoading,isSuccess}=useGetUserQuery()
-  console.log(data)
+  
 
   return (
     <div className='dashboard'>
@@ -13,8 +13,8 @@ const ProfilePage = () => {
       <div className="profile_head">
       <img src={data?.image.fileLocalPath} alt="" />
       <div className="profile_head_heading">
-      <p>Name</p>
-      <p>Email</p>
+      <p>Name : {data?.name}</p>
+      <p>Email: {data?.email}</p>
       </div>
       </div>
       <div className="profile_form">
