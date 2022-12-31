@@ -28,16 +28,16 @@ const OTPConfirm = () => {
       <div className="main">
      <div className="form_div">
      <form >
-     <ReactCodeInput inputStyle={{   fontFamily: 'monospace',
+     <ReactCodeInput inputStyle={{display:"block",   fontFamily: 'monospace',
   
     borderRadius: '3px',
-    fontSize: '16px',
+    fontSize: '12px',
     
     
-    backgroundColor: 'black',
-    color: 'lightskyblue',
+    
+    color: 'black',
     border: '1px solid lightskyblue'}} onChange={(value)=>setOTP(value)} type='number' fields={6} />
-      <input onClick={submitOTP} className='login__btn' type="button" value="Next" />
+      {isLoading?<button  className='login__btn' type="button" disabled ><i class="fas fa-spinner fa-spin"></i> NEXT</button>:<button onClick={submitOTP} className='login__btn' type="button" > NEXT</button>}
 					
 				</form>
      </div>

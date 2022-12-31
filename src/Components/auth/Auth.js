@@ -13,7 +13,7 @@ const Auth = () => {
 	const[userLogin,{data:dataLogin,isLoading,isSuccess,error:updateError}]=useUserLoginMutation()
 	const[createUser,{data:userCreateData,isSuccess:createSuccess,error:createError}]=useCreateUserMutation()
 	if(updateError){
-		toast.error(`${updateError.data.message}`,{
+		toast.error(`${updateError?.data?.message}`,{
 			position: "bottom-center"})
 	}
 	console.log(userCreateData)
@@ -77,7 +77,8 @@ const Auth = () => {
 					<input type="email" name="email" placeholder="Email" required/>
 					<input type="password" name="password" placeholder="Password" required/>
 					
-					<button type="submit">Login</button>
+					
+					{isLoading ?<button type="submit"  disabled><i class="fas fa-spinner fa-spin"></i> Login</button>:<button type="submit"> Login</button>}
 					<Link to="/passwordRecovery" className='forgetPass'>Forget password ?</Link>
 				</form>
 			</div>

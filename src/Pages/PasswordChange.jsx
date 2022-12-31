@@ -32,7 +32,7 @@ const PasswordChange = () => {
      <input type="password" name="password" placeholder="Enter New Password" required/>
 					
 					
-					<button type="submit">Change</button>
+					{isLoading?<button type="submit" disabled> <i class="fas fa-spinner fa-spin"></i> Change</button>:<button type="submit">Change</button>}
 					
 				</form>
      </div>

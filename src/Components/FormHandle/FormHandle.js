@@ -2,7 +2,7 @@ import React from 'react'
 import { useUpdateUserMutation } from '../../app/services/userService'
 
 const FormHandle = ({name,password,image}) => {
-  const[updateUser,{data,isSuccess:updateSuccess}]=useUpdateUserMutation()
+  const[updateUser,{data,isSuccess:updateSuccess,isLoading}]=useUpdateUserMutation()
     // const initialValue={
     //     name:name,
     //     password:password,
@@ -43,7 +43,7 @@ const FormHandle = ({name,password,image}) => {
     <input type="text" name="name" defaultValue={name} required/>
 
     <input type="password" name="password"  />
-    <button type="submit">Update</button>
+    {isLoading?<button type="submit" disabled><i class="fas fa-spinner fa-spin"></i> Update</button>:<button type="submit">Update</button>}
 </form>
     {/* <form onSubmit={handleSubmit} enctype="multipart/form-data">
 				

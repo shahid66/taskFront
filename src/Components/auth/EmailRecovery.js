@@ -5,7 +5,7 @@ import './auth.css';
 
 const EmailRecovery = () => {
   const navigator=useNavigate()
-  const[getUserEmail,{data,isSuccess,error}]= useGetUserEmailMutation()
+  const[getUserEmail,{data,isSuccess,error,isLoading}]= useGetUserEmailMutation()
   
   console.log(data)
  if(isSuccess){
@@ -32,7 +32,7 @@ const EmailRecovery = () => {
 					<input type="email" name="email" placeholder="Email" required/>
 					
 					
-					<button type="submit">Send</button>
+					{isLoading?<button type="submit" disabled><i class="fas fa-spinner fa-spin"></i> Send</button>:<button type="submit">Send</button>}
 					
 				</form>
      </div>

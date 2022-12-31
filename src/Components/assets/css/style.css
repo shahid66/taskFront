@@ -142,9 +142,30 @@
     #2b5876
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+.skelton_todo__card {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #eee;
+  color: whitesmoke;
+
+  background: linear-gradient(
+    to right,
+    #d5d1e4,
+    #58768a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 .todo__card-bottom h4 {
   font-size: 1.3rem;
   margin: 10px 0px;
+}
+.skelton_todo__card-bottom h4 {
+  font-size: 1.3rem;
+  margin: 10px 0px;
+}
+.skelton_todo__card-other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .todo__card-other {
   display: flex;
@@ -155,6 +176,21 @@
   display: flex;
   align-items: center;
   column-gap: 1rem;
+}
+.skelton_todo__card-icons {
+  width: 100%;
+  display: flex;
+}
+.skelton_todo__card-icons p {
+  width: 20px;
+  margin-left: 10px;
+}
+.skelton_todo__description {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(255, 254, 254);
+  padding-bottom: 20px;
 }
 .todo__description {
   font-weight: 500;
@@ -174,6 +210,12 @@
   border-radius: 5px;
   padding: 5px 10px;
   color: black;
+}
+.skelton_task__status {
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: black;
+  width: 100px;
 }
 .task__edit {
   cursor: pointer;
@@ -261,10 +303,10 @@
   display: flex;
   justify-content: flex-end;
 }
-.p_input input {
+.p_input button {
   width: 20%;
   border: none;
-  background: rgb(109, 2, 2);
+  background: rgb(32, 88, 147);
   color: #fff;
   cursor: pointer;
 }
@@ -325,4 +367,18 @@
 }
 .profile_form form input {
   height: 40px !important;
+}
+.react-code-input {
+  display: flex !important;
+  column-gap: 4px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import TaskCard from "../Components/TaskCard/TaskCard";
 import { useGetTodoQuery } from "../app/services/todoService";
+import TaskSkeleton from "../Components/SkeletonLoading/TaskSkeleton";
 
 const DashboardPage = () => {
  
@@ -21,13 +22,17 @@ const DashboardPage = () => {
     <div className="dashboard">
       <div className="dashboard__wrapper">
         <div className="todo__task-wrapper">
-          {data.map((item,i)=>(
+
+        {isLoading?<TaskSkeleton/>:
+
+
+          data.map((item,i)=>(
             <TaskCard key={i} item={item}/>
-          ))}
-         
+          ))
+         }
         </div>
 
-        <div className="recommend__cars-wrapper"></div>
+        {/* <div className="recommend__cars-wrapper"></div> */}
       </div>
     </div>
   );

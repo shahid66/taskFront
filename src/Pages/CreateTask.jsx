@@ -6,7 +6,7 @@ import { useCreateTodoMutation } from "../app/services/todoService";
 const CreateTask = () => {
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
-  const [createTodo, data] = useCreateTodoMutation();
+  const [createTodo, {data,isLoading,isSuccess}] = useCreateTodoMutation();
 
   const createNewUser = async (e) => {
     e.preventDefault();
@@ -22,8 +22,11 @@ const CreateTask = () => {
     };
 
     await createTodo(formData);
-    navigate("/dashboard");
+   
   };
+  if(isSuccess){
+    navigate("/dashboard");
+  }
 
   return (
     <div className="dashboard">
@@ -54,7 +57,7 @@ const CreateTask = () => {
                   onChange={(date: Date) => setStartDate(date)}
                 />
                 <p className="p_input">
-                  <input type="submit" value="Submit" />
+                  {isLoading?<button type="submit" disabled><i class="fas fa-spinner fa-spin"></i> Create</button>:<button type="submit" > Create</button>}
                 </p>
               </div>
             </form>
