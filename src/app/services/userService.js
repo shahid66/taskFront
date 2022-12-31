@@ -61,10 +61,44 @@ export const userApi = createApi({
 				body: userData,
 			}),
 		}),
+		// getUserEmail: builder.query({
+		// 	query: (email) => ({
+		// 		url: `/emailRecovery/${email}`,
+		// 		method: 'GET',
+		// 	}),
+		// 	providesTags: ['user'],
+		// }),
+		getUserEmail: builder.mutation({
+			query: (email) => ({
+				url: `emailRecovery/${email}`,
+				method: 'GET',
+			}),
+			invalidatesTags: ['user'],
+		}),
+		getUserOTP: builder.mutation({
+			query: ({Email,OTP}) => ({
+				url: `verifyOTP/${Email}/${OTP}`,
+				method: 'GET',
+			}),
+			invalidatesTags: ['user'],
+		}),
+		updateUserPassword: builder.mutation({
+			query: (formData) => ({
+				url: `/passwordUpdate`,
+				method: 'POST',
+				body:formData
+			}),
+			invalidatesTags: ['user'],
+		}),
+		
 	}),
 });
 export const {
 	useGetUserQuery,
+	
+	useGetUserEmailMutation,
+	useGetUserOTPMutation,
+	useUpdateUserPasswordMutation,
 	useCreateUserMutation,
 	useUpdateUserMutation,
 	useDeleteUserMutation,

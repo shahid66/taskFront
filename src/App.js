@@ -2,12 +2,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Auth from "./Components/auth/Auth";
+import EmailRecovery from "./Components/auth/EmailRecovery";
 import Layout from "./Layout/Layout";
 import CompletedPage from "./Pages/CompletedPage";
 import CreateTask from "./Pages/CreateTask";
 import DashboardPage from "./Pages/DashboardPage";
 import Inprogress from "./Pages/Inprogress";
 import Monthly from "./Pages/Monthly";
+import OTPConfirm from "./Pages/OTPConfirm";
+import PasswordChange from "./Pages/PasswordChange";
 import ProfilePage from "./Pages/ProfilePage";
 import SettingPage from "./Pages/SettingPage";
 import Today, { default as NewTask } from "./Pages/Today";
@@ -24,6 +27,9 @@ function App() {
         <Routes>
           <Route element={<RedirectRoute></RedirectRoute>}>
           <Route path="/" element={<Auth></Auth>} />
+          <Route path="/passwordRecovery" element={<EmailRecovery></EmailRecovery>} />
+          <Route path="/otpCheck" element={<OTPConfirm></OTPConfirm>} />
+          <Route path="/createPassword" element={<PasswordChange></PasswordChange>} />
           </Route>
         
        <Route element={<PrivateRoute/>}>

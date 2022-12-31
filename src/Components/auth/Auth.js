@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useCreateUserMutation, useUserLoginMutation } from '../../app/services/userService'
 import { setToken } from '../../app/slices/authSlice'
@@ -39,7 +39,7 @@ const Auth = () => {
 		let email=e.target.email.value
 		let password=e.target.password.value
 		
-	if(name.trim()<1 || email.trim() || password.trim()){
+	if(name.trim()<1 || email.trim()<1 || password.trim()<1){
 		toast.error("fill all field",{
 			position: "bottom-center"})
 	}else{
@@ -76,7 +76,9 @@ const Auth = () => {
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required/>
 					<input type="password" name="password" placeholder="Password" required/>
+					
 					<button type="submit">Login</button>
+					<Link to="/passwordRecovery" className='forgetPass'>Forget password ?</Link>
 				</form>
 			</div>
 			<div className="signup">
